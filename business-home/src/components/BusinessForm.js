@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+
+//import business login local storage for token -JAH
+import { axiosWithAuthBusiness } from '../utils/axiosWithAuth';
 
 // https://bw-replate.herokuapp.com/api/auth/business/login
 // {
@@ -9,27 +12,58 @@ import * as Yup from "yup";
 // }
 
 const BusinessForm = (errors, touched, values, status) => {
-  const [login, setLogin] = useState([]);
+
+  //set local state here 
+  const [login, setLogin] = useState({
+    username: '',
+    password: ''
+  });
+
+  //set login event
+  const businessLogin = e => {
+    e.preventDefault();
+    axiosWithAuthBusiness()
+    .post('/login', login)
+    .then(res => {
+      console.log(res);
+      localStorage.setItem('token', res.data.token);
+    })
+
+  }
+  //change handler
+  const handleChange = (e) => {
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.values
+    })
+  }
 
   return (
     <div>
       <h2>Business User Login</h2>
-      <Form>
+      <Form onSubmit={businessLogin} >
+        <div>
         <Field
           component="input"
           type="text"
           name="username"
           placeholder="Enter user name"
         />
-        {touched.username && errors.username && <p>errors.username</p>}
+        {touched.username && errors.username && (<p>errors.username</p>)}
+        </div>
+        <div>
         <Field
           component="input"
           type="password"
           name="password"
           placeholder="Enter password"
         />
-        {touched.password && errors.password && <p>errors.password</p>}
+        {touched.password && errors.password && (<p>errors.password</p>)}
+        </div>
+        <div>
         <button type="submit">Login</button>
+        </div>
+       
       </Form>
     </div>
   );

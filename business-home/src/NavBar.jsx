@@ -18,6 +18,8 @@ const NavBar = () => {
         <NavLink to="/BusinessDetails">
           <i class="material-icons">account_circle</i>
         </NavLink>
+        <NavLink to="/login">User Login</NavLink>
+        <NavLink to="/signup">User Signup</NavLink>
       </div>
     </div>
   );
