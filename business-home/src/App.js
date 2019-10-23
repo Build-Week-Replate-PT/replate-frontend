@@ -7,11 +7,10 @@ import DonationsList from "./components/DonationsList";
 import DonationCard from "./components/DonationCard";
 import NavBar from "./NavBar";
 import Home from "./components/Home";
-import PickUps from './PickUps.js'
-import PickupDetails from './PickupDetails.js'
-import CreateProfile from './CreateProfile.js'
-import VolunteerHomePage from './VolunteerHomepage'
-import PickUpDetails from './PickupDetails.js';
+import PickUps from "./VolunteerComponents/PickUps.js";
+import CreateProfile from "./VolunteerComponents/CreateProfile.js";
+import VolunteerHomePage from "./VolunteerHomepage";
+import PickUpDetails from "./VolunteerComponents/PickupDetails.js";
 import Links from "./components/Links";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
@@ -87,18 +86,17 @@ function App() {
             path="/DonationCard/:id"
             render={props => {
               return <DonationCard props={props} donations={donations} />;
-              
             }}
-
-            
-            
           />
 
-<Route exact path="/VolunteerHomePage" component={VolunteerHomePage} />
- <Route exact path="/PickUps" component={PickUps}/>
-<Route exact path="/PickUpDetails" component={PickUpDetails}/>
-<Route exact path="/CreateProfile" component={CreateProfile} />
- 
+          <Route
+            exact
+            path="/VolunteerHomePage"
+            component={VolunteerHomePage}
+          />
+          <Route exact path="/PickUps" component={PickUps} />
+          <Route exact path="/PickUpDetails" component={PickUpDetails} />
+          <Route exact path="/CreateProfile" component={CreateProfile} />
         </section>
       </div>
     </main>
