@@ -7,6 +7,11 @@ import DonationsList from "./components/DonationsList";
 import DonationCard from "./components/DonationCard";
 import NavBar from "./NavBar";
 import Home from "./components/Home";
+//
+import Links from "./components/Links";
+import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
+//
 
 function App() {
   const [businessData, setBusinessData] = useState([]);
@@ -26,6 +31,17 @@ function App() {
         <header>
           <NavBar />
         </header>
+        <div>
+          <Links />
+        </div>
+        <div>
+          <LoginPage />
+        </div>
+        <div>
+          <SignupPage />
+        </div>
+        {/* =======HEADER======== */}
+        {/* =====Content Below is showing route images===== */}
         <section className="Components-section">
           <div className="blockSpace"></div>
           <p>Sections Displayed:</p>
@@ -70,7 +86,9 @@ function App() {
               return <DonationCard props={props} donations={donations} />;
             }}
           />
-        </section>
+        </section>{" "}
+        */}
+        {/* ======= HEADER SECTION TO BE MOVED ======= */}
       </div>
     </main>
   );
