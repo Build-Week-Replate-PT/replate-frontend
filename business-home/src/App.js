@@ -12,6 +12,9 @@ import PickupDetails from './PickupDetails.js'
 import CreateProfile from './CreateProfile.js'
 import VolunteerHomePage from './VolunteerHomepage'
 import PickUpDetails from './PickupDetails.js';
+import Links from "./components/Links";
+import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
 
 function App() {
   const [businessData, setBusinessData] = useState([]);
@@ -31,6 +34,17 @@ function App() {
         <header>
           <NavBar />
         </header>
+        <div>
+          <Links />
+        </div>
+        <div>
+          <LoginPage />
+        </div>
+        <div>
+          <SignupPage />
+        </div>
+        {/* =======HEADER======== */}
+        {/* =====Content Below is showing route images===== */}
         <section className="Components-section">
           <div className="blockSpace"></div>
           <p>Sections Displayed:</p>
@@ -79,7 +93,7 @@ function App() {
             
             
           />
-           <Route exact path="/"  component={VolunteerProfile}/>
+
 <Route exact path="/VolunteerHomePage" component={VolunteerHomePage} />
  <Route exact path="/PickUps" component={PickUps}/>
 <Route exact path="/PickUpDetails" component={PickUpDetails}/>
