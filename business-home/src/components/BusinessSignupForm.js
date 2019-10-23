@@ -1,0 +1,102 @@
+import React, { useState, useEffect } from "react";
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
+
+// https://bw-replate.herokuapp.com/api/auth/business/register
+// {
+//     username: "bussinessUsername",
+//     password: "pass",
+//     organization_name: "alskjdflaksjdf"
+//     address: "1234 Somewhere Place, New York, NY 12345",
+//     email: "wecare@helpinghandcharity.com",
+//     phone: 55
+// }
+
+const BusinessSignupForm = (errors, touched, values, status) => {
+  const [signup, setSignup] = useState([]);
+
+  return (
+    <div>
+      <h2>Business User Signup</h2>
+      <Form>
+        <Field
+          component="input"
+          type="text"
+          name="username"
+          placeholder="Enter user name"
+        />
+        {touched.username && errors.username && <p>errors.username</p>}
+        <Field
+          component="input"
+          type="password"
+          name="password"
+          placeholder="Enter password"
+        />
+        {touched.password && errors.password && <p>errors.password</p>}
+        <Field
+          component="input"
+          type="text"
+          name="organizationname"
+          placeholder="Enter an organization name"
+        />
+        {touched.organizationname && errors.organizationname && (
+          <p>errors.organizationname</p>
+        )}
+        <Field
+          component="input"
+          type="text"
+          name="address"
+          placeholder="Enter organization address on one line"
+        />
+        {touched.address && errors.address && <p>errors.address</p>}
+        <Field
+          component="input"
+          type="email"
+          name="email"
+          placeholder="Enter email"
+        />
+        {touched.email && errors.email && <p>errors.email</p>}
+        <Field
+          component="input"
+          type="telephone"
+          name="telephone"
+          placeholder="Enter phone number"
+        />
+        {touched.telephone && errors.telephone && <p>errors.telephone</p>}
+      </Form>
+    </div>
+  );
+};
+
+const formikHOC = withFormik({
+  mapPropsToValues({
+    username,
+    password,
+    organizationname,
+    address,
+    email,
+    telephone
+  }) {
+    return {
+      username: username || "",
+      password: password || "",
+      organizationname: organizationname || "",
+      address: address || "",
+      email: email || "",
+      telephone: telephone || ""
+    };
+  },
+
+  validationSchema: Yup.object().shape({
+    username: Yup.string().required("Username is required"),
+    password: Yup.string().required("Password is required"),
+    organizationname: Yup.string().required("Organization name is required"),
+    address: Yup.string().required("Organization address is required"),
+    email: Yup.string().required("Email is required"),
+    telephone: Yup.string().required("Telephone is required")
+  })
+});
+
+const BusinessSignupFormWithFormik = formikHOC(BusinessSignupForm);
+
+export default BusinessSignupFormWithFormik;
