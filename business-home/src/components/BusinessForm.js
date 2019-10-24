@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
+// import { withFormik, Form, Field } from "formik";
+// import * as Yup from "yup";
+
+import axios from 'axios'; 
 
 //import business login local storage for token -JAH
 import { axiosWithAuthBusiness } from '../utils/axiosWithAuth';
@@ -11,7 +13,7 @@ import { axiosWithAuthBusiness } from '../utils/axiosWithAuth';
 //     password: "pass"
 // }
 
-const BusinessForm = (errors, touched, values, status) => {
+const BusinessForm = (props) => {
 
   //set local state here 
   const [login, setLogin] = useState({
@@ -21,13 +23,15 @@ const BusinessForm = (errors, touched, values, status) => {
 
   //set login event
   const businessLogin = e => {
+    console.log(e);
     e.preventDefault();
-    axiosWithAuthBusiness()
-    .post('/login', login)
+    axios
+    .post('https://bw-replate.herokuapp.com/api/auth/volunteer/login', login)
     .then(res => {
-      console.log(res);
+      console.log(res.data);
       localStorage.setItem('token', res.data.token);
     })
+    .catch(err => console.log(err))
 
   }
   //change handler
@@ -41,48 +45,48 @@ const BusinessForm = (errors, touched, values, status) => {
   return (
     <div>
       <h2>Business User Login</h2>
-      <Form onSubmit={businessLogin} >
+      <form onSubmit={businessLogin} >
         <div>
-        <Field
+        <input
           component="input"
           type="text"
           name="username"
           placeholder="Enter user name"
-        />
-        {touched.username && errors.username && (<p>errors.username</p>)}
-        </div>
+          onChange={handleChange}
+       />
+       </div>
         <div>
-        <Field
+        <input
           component="input"
           type="password"
           name="password"
           placeholder="Enter password"
+          onChange={handleChange}
         />
-        {touched.password && errors.password && (<p>errors.password</p>)}
-        </div>
+       </div>
         <div>
-        <button type="submit">Login</button>
+        <button>Login</button>
         </div>
        
-      </Form>
+      </form>
     </div>
   );
 };
 
-const formikHOC = withFormik({
-  mapPropsToValues({ username, password }) {
-    return {
-      username: username || "",
-      password: password || ""
-    };
-  },
+// const formikHOC = withFormik({
+//   mapPropsToValues({ username, password }) {
+//     return {
+//       username: username || "",
+//       password: password || ""
+//     };
+//   },
 
-  validationSchema: Yup.object().shape({
-    username: Yup.string().required("Username is required"),
-    password: Yup.string().required("Password is required")
-  })
-});
+//   validationSchema: Yup.object().shape({
+//     username: Yup.string().required("Username is required"),
+//     password: Yup.string().required("Password is required")
+//   })
+// });
 
-const BusinessFormwithFormik = formikHOC(BusinessForm);
+// const BusinessFormwithFormik = formikHOC(BusinessForm);
 
-export default BusinessFormwithFormik;
+export default BusinessForm;
