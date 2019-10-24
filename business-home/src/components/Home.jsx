@@ -22,20 +22,14 @@ const HOME = () => {
     <section className="homePage-container">
       <div className="homePage-content">
         <h2>HOME PAGE</h2>
-        <header>
+        {/* <header>
           <NavBar />
-        </header>
-        <section className="Components-section">
+        </header> */}
+        {/* <section className="Components-section">
           <div className="blockSpace"></div>
-          <p>Sections Displayed:</p>
-          {/* <Route
-            exact
-            path={"/Home"}
-            render={props => {
-              return <Home props={props} />;
-            }}
-          /> */}
-          <Route
+          <p>Sections Displayed:</p> */}
+
+        {/* <Route
             exact
             path={"/DonationsList"}
             render={props => {
@@ -69,7 +63,7 @@ const HOME = () => {
               return <DonationCard props={props} donations={donations} />;
             }}
           />
-        </section>
+        </section> */}
 
         {/* <div className="business-info">
           <h2>BusinessName</h2>
