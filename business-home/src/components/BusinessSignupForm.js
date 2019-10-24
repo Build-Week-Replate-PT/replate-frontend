@@ -19,20 +19,25 @@ const BusinessSignupForm = (errors, touched, values, status) => {
     <div>
       <h2>Business User Signup</h2>
       <Form>
+        <div>
         <Field
           component="input"
           type="text"
           name="username"
           placeholder="Enter user name"
         />
-        {touched.username && errors.username && <p>errors.username</p>}
+        {touched.username && errors.username && (<p>errors.username</p>)}
+        </div>
+        <div>
         <Field
           component="input"
           type="password"
           name="password"
           placeholder="Enter password"
         />
-        {touched.password && errors.password && <p>errors.password</p>}
+        {touched.password && errors.password && (<p>errors.password</p>)}
+        </div>
+        <div>
         <Field
           component="input"
           type="text"
@@ -42,27 +47,39 @@ const BusinessSignupForm = (errors, touched, values, status) => {
         {touched.organizationname && errors.organizationname && (
           <p>errors.organizationname</p>
         )}
+        </div>
+        <div>
         <Field
           component="input"
           type="text"
           name="address"
           placeholder="Enter organization address on one line"
         />
-        {touched.address && errors.address && <p>errors.address</p>}
+  {touched.address && errors.address && (<p>errors.address</p>)}
+        </div>
+        <div>
         <Field
           component="input"
           type="email"
           name="email"
           placeholder="Enter email"
         />
-        {touched.email && errors.email && <p>errors.email</p>}
+        {touched.email && errors.email && (<p>errors.email</p>)}
+        </div>
+        <div>
         <Field
           component="input"
           type="telephone"
           name="telephone"
           placeholder="Enter phone number"
         />
-        {touched.telephone && errors.telephone && <p>errors.telephone</p>}
+        {touched.telephone && errors.telephone && (<p>errors.telephone</p>)}
+        </div>
+        <div>
+        <button type='submit'>Submit</button>
+        </div>
+        
+
       </Form>
     </div>
   );

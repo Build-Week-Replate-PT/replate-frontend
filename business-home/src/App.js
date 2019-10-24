@@ -33,15 +33,6 @@ function App() {
         <header>
           <NavBar />
         </header>
-        <div>
-          <Links />
-        </div>
-        <div>
-          <LoginPage />
-        </div>
-        <div>
-          <SignupPage />
-        </div>
         {/* =======HEADER======== */}
         {/* =====Content Below is showing route images===== */}
         <section className="Components-section">
@@ -80,6 +71,24 @@ function App() {
                   apiAdd={apiAdd}
                 />
               );
+            }}
+          />
+          <Route 
+            exact
+            path={"/login"}
+            render = {props => {
+              return (
+                <LoginPage />
+              )
+            }}
+          />
+              <Route 
+            exact
+            path={"/signup"}
+            render = {props => {
+              return (
+                <SignupPage />
+              )
             }}
           />
           <Route
