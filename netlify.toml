@@ -1,2 +1,4 @@
 [build]
- base = "business-home"
+ base = "./business-home"
+ publish = "./build"
+ command = "yarn build"
