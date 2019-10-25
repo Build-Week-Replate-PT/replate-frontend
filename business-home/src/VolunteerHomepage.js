@@ -3,7 +3,7 @@ import replatelogo from "./Replate-images/replatelogo.svg";
 import "./App.css";
 import desktopbanner from "./Replate-images/desktopbanner.svg";
 import { Link } from "react-router-dom";
-import CreateProfile from "./VolunteerComponents/CreateProfile.js";
+import CreateProfile from "./VolunteerComponents/CreateProfile";
 
 function VolunteerHomepage() {
   return (
