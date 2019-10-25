@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import BusinessDetails from "./BusinessDetails";
 import DonationsList from "./DonationsList";
 import DonationCard from "./DonationCard";
-import NavBar from "./../NavBar";
+import NavBar from "../NavBar";
 //
 const HOME = () => {
   const [businessData, setBusinessData] = useState([]);
@@ -22,6 +22,9 @@ const HOME = () => {
     <section className="homePage-container">
       <div className="homePage-content">
         <h2>HOME PAGE</h2>
+
+        {/*ENTER BUTTONS FOR DONATIONS AND BUSINESS INFO  */}
+
         {/* <header>
           <NavBar />
         </header> */}
