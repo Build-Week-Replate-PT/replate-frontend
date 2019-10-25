@@ -22,6 +22,9 @@ const HOME = () => {
     <section className="homePage-container">
       <div className="homePage-content">
         <h2>HOME PAGE</h2>
+
+        {/*ENTER BUTTONS FOR DONATIONS AND BUSINESS INFO  */}
+
         {/* <header>
           <NavBar />
         </header> */}
