@@ -42,7 +42,7 @@ function App() {
             exact
             path={"/"}
             render={props => {
-              return <Home props={props} />;
+              return <LoginPage props={props} />;
             }}
           />
           <Route
@@ -75,16 +75,9 @@ function App() {
           />
           <Route
             exact
-            path={"/login"}
-            render={props => {
-              return <LoginPage />;
-            }}
-          />
-          <Route
-            exact
             path={"/signup"}
             render={props => {
-              return <SignupPage />;
+              return <SignupPage props={props} />;
             }}
           />
           <Route
