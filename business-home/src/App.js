@@ -6,7 +6,7 @@ import BusinessDetails from "./components/BusinessDetails";
 import DonationsList from "./components/DonationsList";
 import DonationCard from "./components/DonationCard";
 import NavBar from "./NavBar";
-import Home from "./components/BusinessHome";
+import BusinessHome from "./components/BusinessHome";
 import PickUps from "./VolunteerComponents/PickUps.js";
 import CreateProfile from "./VolunteerComponents/CreateProfile.js";
 import VolunteerHomePage from "./VolunteerHomepage";
@@ -23,7 +23,7 @@ function App() {
   //-----Below is for testing ONLY!!! change url when REAL API is up and running----
   // const apiAdd = "https://pokeapi.co/api/v2/pokemon/";
   const apiAdd = "https://bw-replate.herokuapp.com/api/auth/business/login";
-  const apiAddFood = "https://bw-replate.herokuapp.com/api/food";
+  const apiAddFood = "https://bw-replate.herokuapp.com/api/food/business";
   //====^^^^^^^^^====
   let busKeys = [];
 

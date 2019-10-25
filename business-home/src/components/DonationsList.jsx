@@ -5,6 +5,10 @@ import axios from "axios";
 import Dropdown from "react-dropdown";
 
 import { dummyData } from "./DummyData";
+import {
+  axiosWithAuthBusiness,
+  axiosWithAuthFood
+} from "../utils/axiosWithAuth.js";
 
 const DonationsList = props => {
   // console.log(props);
@@ -40,47 +44,49 @@ const DonationsList = props => {
   };
   //=====
 
-  const userTest = "";
-  // const userTest = 15;
-  let inputData = [];
-  //====
-  //
-  //
+  //----get the user token========
+  let credentials = {
+    username: "aasDora2",
+    password: "pass"
+  };
 
-  // const loginKey = { username: "busnessUsername", password: "pass" };
-  // useEffect(() => {
-  //   console.log("axios is running");
-  //   const getDonations = () => {
-  //     axios
-  //       .get(apiAdd)
-  //       .then(results => {
-  //         //===depends on specificity of data to look up.
-  //         if (Number.isInteger(userTest)) {
-  //           inputData = results.data;
-  //         } else {
-  //           inputData = results.data.results;
-  //         }
-  //         //====
-  //         setDonations(inputData);
-  //         console.log(inputData);
-  //         console.log(Object.keys(inputData), Object.values(inputData));
-  //       })
-  //       .catch(err => console.log(err));
-  //   };
-  //   getDonations();
-  // }, []);
+  const [tokenNum, setToken] = useState("");
+  const [businessUser, setBusinessUser] = useState({});
+  // let response = {};
+  useEffect(() => {
+    axiosWithAuthBusiness()
+      .post("/login", credentials)
+      .then(data => {
+        setToken(data.data.token);
+        console.log(data.data.token);
+        // setBusinessUser(data.data.user);
+        // console.log(businessUser, data.data.user);
+      })
+      .catch(err => console.log(err));
+    // }
+  }, []);
 
-  //
-  console.log(filteredDonations);
+  if (tokenNum != "") {
+    console.log("test", tokenNum);
+    axios
+      .get("https://bw-replate.herokuapp.com/api/food", {
+        headers: { Authorization: `${tokenNum}` }
+      })
+      .then(res => console.log(res))
+      .catch(e => console.log(e));
+  }
+  //==============tokenNum = token!!!!!=====
+  // console.log(filteredDonations);
+
+  //using DummyData.js.....==========================
   const options = ["one", "two", "three"];
-
-  console.log("donations", donations);
   useEffect(() => {
     if (donations == 0) {
       setFilteredDons(dummyData);
       console.log("filtered", filteredDonations);
     }
   });
+  //=================================================
 
   //===========================================
   return (

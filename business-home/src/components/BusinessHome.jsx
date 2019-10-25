@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Route } from "react-router-dom";
 //
-import BusinessDetails from "./BusinessDetails";
-import DonationsList from "./DonationsList";
-import DonationCard from "./DonationCard";
-import NavBar from "../NavBar";
+
+// import { Route } from "react-router-dom";
+// import BusinessDetails from "./BusinessDetails";
+// import DonationsList from "./DonationsList";
+// import DonationCard from "./DonationCard";
+// import NavBar from "../NavBar";
+
 //
 const HOME = () => {
-  const [businessData, setBusinessData] = useState([]);
-  const [donations, setDonations] = useState([]);
+  // const [businessData, setBusinessData] = useState([]);
+  // const [donations, setDonations] = useState([]);
   // const [donations, setDonations] = useState({ id: 0, name: "fish" });
 
   //-----Below is for testing ONLY!!! change url when REAL API is up and running----
   // const apiAdd = "https://pokeapi.co/api/v2/pokemon/";
-  const apiAdd = "https://bw-replate.herokuapp.com/api/auth/business/login";
-  const apiAddFood = "https://bw-replate.herokuapp.com/api/food";
-  //====^^^^^^^^^====
-  let busKeys = [];
+  // const apiAdd = "https://bw-replate.herokuapp.com/api/auth/business/login";
+  // const apiAddFood = "https://bw-replate.herokuapp.com/api/food";
+  // //====^^^^^^^^^====
+  // let busKeys = [];
 
   return (
     <section className="homePage-container">

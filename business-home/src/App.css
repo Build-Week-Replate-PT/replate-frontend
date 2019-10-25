@@ -41,7 +41,7 @@ h3 {
   display: flex;
 
   background: none;
-  width: 45%;
+  min-width: 55%;
   height: 50px;
 
   top: 0;
