@@ -24,3 +24,16 @@ export const axiosWithAuthNonProfit = () => {
         }
     })
 }
+
+//food token
+export const axiosWithAuthFood = () => {
+    const token = localStorage.getItem('token');
+
+    return axios.create({
+        baseURL: 'https://bw-replate.herokuapp.com/api/food',
+        headers: {
+            Authorization: token
+        }
+    })
+
+}
