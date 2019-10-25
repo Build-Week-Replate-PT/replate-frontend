@@ -6,7 +6,7 @@ import BusinessDetails from "./components/BusinessDetails";
 import DonationsList from "./components/DonationsList";
 import DonationCard from "./components/DonationCard";
 import NavBar from "./NavBar";
-import Home from "./components/Home";
+import Home from "./components/BusinessHome";
 import PickUps from "./VolunteerComponents/PickUps.js";
 import CreateProfile from "./VolunteerComponents/CreateProfile.js";
 import VolunteerHomePage from "./VolunteerHomepage";

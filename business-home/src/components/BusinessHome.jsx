@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import BusinessDetails from "./BusinessDetails";
 import DonationsList from "./DonationsList";
 import DonationCard from "./DonationCard";
-import NavBar from "./../NavBar";
+import NavBar from "../NavBar";
 //
 const HOME = () => {
   const [businessData, setBusinessData] = useState([]);
