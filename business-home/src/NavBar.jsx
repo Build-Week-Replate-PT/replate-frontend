@@ -1,15 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-// import BusinessDetails from "./components/BusinessDetails";
-// import DonationsList from "./components/DonationsList";
-// import Home from "./components/Home";
-
 const NavBar = () => {
   return (
     <div className="NavBar-container">
       <div className="NavBar-banner">
-        <NavLink to="/">
+        <NavLink to="/BusinessHome">
           <i class="material-icons">home</i>
         </NavLink>
         <NavLink to="/DonationsList">
@@ -18,7 +14,7 @@ const NavBar = () => {
         <NavLink to="/BusinessDetails">
           <i class="material-icons">account_circle</i>
         </NavLink>
-        <NavLink to="/login">User Login</NavLink>
+        <NavLink to="/">User Login</NavLink>
         <NavLink to="/signup">User Signup</NavLink>
       </div>
     </div>
