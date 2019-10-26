@@ -56,7 +56,7 @@ const NonProfitSignupForm = (props) => {
           placeholder="Enter user name"
           onChange={handleChange}
         />
-        {/* {touched.username && errors.username && (<p>errors.username</p>)} */}
+        
         </div>
         <div>
         <input
@@ -66,7 +66,7 @@ const NonProfitSignupForm = (props) => {
           placeholder="Enter password"
           onChange={handleChange}
         />
-        {/* {touched.password && errors.password && (<p>errors.password</p>)} */}
+        
         </div>
         <div>
         <input
@@ -76,9 +76,7 @@ const NonProfitSignupForm = (props) => {
           placeholder="Enter an organization name"
           onChange={handleChange}
         />
-        {/* {touched.organizationname && errors.organizationname && (
-          <p>errors.organizationname</p>
-        )} */}
+        
         </div>
         <div>
         <input
@@ -88,7 +86,7 @@ const NonProfitSignupForm = (props) => {
           placeholder="Enter organization address on one line"
           onChange={handleChange}
         />
-        {/* {touched.address && errors.address && (<p>errors.address</p>)} */}
+       
         </div>      
         <div> 
         <input
@@ -98,7 +96,7 @@ const NonProfitSignupForm = (props) => {
           placeholder="Enter email"
           onChange={handleChange}
         />
-        {/* {touched.email && errors.email && (<p>errors.email</p>)} */}
+       
         </div> 
         <div>
         <input
@@ -108,7 +106,7 @@ const NonProfitSignupForm = (props) => {
           placeholder="Enter phone number"
           onChange={handleChange}
         />
-        {/* {touched.telephone && errors.telephone && (<p>errors.telephone</p>)} */}
+        
         </div>
 
         <div>

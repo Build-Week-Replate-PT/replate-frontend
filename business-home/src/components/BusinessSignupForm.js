@@ -25,8 +25,7 @@ const BusinessSignupForm = (props) => {
 
   //set signup
   const businessSignup = e => {
-    console.log("Click works");
-    console.log(signup)
+    console.log("BSU_Form Props: ", props);
     e.preventDefault();
     axios 
     .post('https://bw-replate.herokuapp.com/api/auth/business/register', signup)

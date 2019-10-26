@@ -6,6 +6,9 @@ import DonationsList from "./DonationsList";
 import DonationCard from "./DonationCard";
 import NavBar from "../NavBar";
 //
+
+import DonationForm from "./DonationForm";
+
 const HOME = () => {
   const [businessData, setBusinessData] = useState([]);
   const [donations, setDonations] = useState([]);
@@ -22,6 +25,8 @@ const HOME = () => {
     <section className="homePage-container">
       <div className="homePage-content">
         <h2>HOME PAGE</h2>
+          <DonationForm />
+
 
         {/*ENTER BUTTONS FOR DONATIONS AND BUSINESS INFO  */}
 
