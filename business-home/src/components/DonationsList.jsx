@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DonationCard from "./DonationCard";
 import SearchForm from "./SearchForm";
+import { NavLink } from "react-router-dom";
 
 import { dummyData } from "./DummyData";
 import { axiosWithAuthFood } from "../utils/axiosWithAuth.js";
@@ -36,6 +37,7 @@ const DonationsList = props => {
   //=====
 
   let tokenNum = localStorage.getItem("token");
+  console.log(tokenNum);
   useEffect(() => {
     axiosWithAuthFood()
       .get("", tokenNum)
@@ -51,7 +53,8 @@ const DonationsList = props => {
     <section className="donations-container">
       DONATIONS PAGE:
       <div className="donation-header">
-        <p>Add Donation</p>
+        <NavLink to="/business-home">Home</NavLink>
+        <NavLink to="/add-donation">Add Donation</NavLink>
         <SearchForm
           searchValDon={searchValDon}
           handleChange={handleChange}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../DonationCard.css";
+import { NavLink } from "react-router-dom";
 
 const DonationCard = props => {
   const [donation, setDonation] = useState(undefined);
@@ -43,12 +44,8 @@ const DonationCard = props => {
             <p>{pickup_date}</p>
             <p>{status}</p>
           </div>
-          <a href="" alt="modify-item">
-            Modify
-          </a>
-          <a href="" alt="delete-item">
-            Delete
-          </a>
+          <NavLink to="/modify-food">Modify</NavLink>
+          <NavLink to="/delete-food">Delete</NavLink>
         </div>
       </div>
     </section>
