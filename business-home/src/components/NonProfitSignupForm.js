@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import { withFormik, Form, Field } from "formik";
-// import * as Yup from "yup";
 import axios from 'axios';
 
 // https://bw-replate.herokuapp.com/api/auth/volunteer/register
@@ -34,6 +32,7 @@ const NonProfitSignupForm = (props) => {
     .post('https://bw-replate.herokuapp.com/api/auth/volunteer/register', signup)
     .then(res => {
       console.log(res.data);
+      props.history.push('/nonprofit_home')
     })
     .catch(err => console.log(err))
   }
@@ -120,36 +119,5 @@ const NonProfitSignupForm = (props) => {
     </div>
   );
 };
-
-// const formikHOC = withFormik({
-//   mapPropsToValues({
-//     username,
-//     password,
-//     organizationname,
-//     address,
-//     email,
-//     telephone
-//   }) {
-//     return {
-//       username: username || "",
-//       password: password || "",
-//       organizationname: organizationname || "",
-//       address: address || "",
-//       email: email || "",
-//       telephone: telephone || ""
-//     };
-//   },
-
-//   validationSchema: Yup.object().shape({
-//     username: Yup.string().required("Username is required"),
-//     password: Yup.string().required("Password is required"),
-//     organizationname: Yup.string().required("Organization name is required"),
-//     address: Yup.string().required("Organization address is required"),
-//     email: Yup.string().required("Email is required"),
-//     telephone: Yup.string().required("Telephone is required")
-//   })
-// });
-
-// const NonProfitSignupFormWithFormik = formikHOC(NonProfitSignupForm);
 
 export default NonProfitSignupForm;
