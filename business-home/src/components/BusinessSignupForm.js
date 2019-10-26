@@ -32,6 +32,8 @@ const BusinessSignupForm = (props) => {
     .post('https://bw-replate.herokuapp.com/api/auth/business/register', signup)
     .then(res => {
       console.log(res.data);
+      props.history.push('/business_home')
+
     })
     .catch(err => console.log(err))
   }

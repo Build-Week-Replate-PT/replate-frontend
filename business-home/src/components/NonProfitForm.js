@@ -27,6 +27,7 @@ const NonProfitForm = (props) => {
     .then(res => {
       console.log(res);
       localStorage.setItem('token', res.data.token);
+      props.history.push('/nonprofit-home');
     })
   }
   

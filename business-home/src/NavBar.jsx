@@ -6,16 +6,14 @@ const NavBar = () => {
     <div className="NavBar-container">
       <div className="NavBar-banner">
         <NavLink to="/BusinessHome">
-          <i class="material-icons">home</i>
+          <i className="material-icons">home</i>
         </NavLink>
         <NavLink to="/DonationsList">
-          <i class="material-icons">fastfood</i>
+          <i className="material-icons">fastfood</i>
         </NavLink>
         <NavLink to="/BusinessDetails">
-          <i class="material-icons">account_circle</i>
+          <i className="material-icons">account_circle</i>
         </NavLink>
-        <NavLink to="/">User Login</NavLink>
-        <NavLink to="/signup">User Signup</NavLink>
       </div>
     </div>
   );

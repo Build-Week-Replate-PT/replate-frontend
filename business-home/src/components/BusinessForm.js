@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'; 
+import { Redirect } from 'react-router-dom';
 
 //import business login local storage for token -JAH
 import { axiosWithAuthBusiness } from '../utils/axiosWithAuth';
@@ -20,14 +21,14 @@ const BusinessForm = (props) => {
 
   //set login event
   const businessLogin = e => {
-    console.log("We got something random");
-    console.log(login);
+    console.log("props2 ", props);
     e.preventDefault();
     axios
     .post('https://bw-replate.herokuapp.com/api/auth/business/login', login)
     .then(res => {
       console.log(res.data);
       localStorage.setItem('token', res.data.token);
+      props.history.push('/business-home');
     })
     .catch(err => console.log(err))
 
@@ -66,6 +67,7 @@ const BusinessForm = (props) => {
         <button>Login</button>
         </div>
       </form>
+     
     </div>
   );
 };
