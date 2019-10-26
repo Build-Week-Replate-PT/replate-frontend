@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //import compoments
 import BusinessSignupForm from "./BusinessSignupForm";
 import NonProfitSignupForm from "./NonProfitSignupForm";
+
 
 const SignupPage = () => {
   return (
@@ -13,6 +15,10 @@ const SignupPage = () => {
       <div>
         <NonProfitSignupForm />
       </div>
+      <div>
+      <Link to="/">Click here to login</Link>
+      </div>
+      
     </div>
   );
 };

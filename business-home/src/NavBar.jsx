@@ -14,8 +14,6 @@ const NavBar = () => {
         <NavLink to="/BusinessDetails">
           <i className="material-icons">account_circle</i>
         </NavLink>
-        <NavLink to="/">User Login</NavLink>
-        <NavLink to="/signup">User Signup</NavLink>
       </div>
     </div>
   );
