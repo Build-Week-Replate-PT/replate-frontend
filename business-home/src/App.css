@@ -125,3 +125,13 @@ h3 {
     height: 30px;
   }
 }
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+}
+.navigation-buttons a {
+  background: green;
+  padding: 20px;
+  margin: 10px;
+}
