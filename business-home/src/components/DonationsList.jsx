@@ -72,7 +72,7 @@ const DonationsList = props => {
       .get("https://bw-replate.herokuapp.com/api/food", {
         headers: { Authorization: `${tokenNum}` }
       })
-      .then(res => console.log(res))
+      .then(res => console.log("Get response:", res.data))
       .catch(e => console.log(e));
   }
   //==============tokenNum = token!!!!!=====
