@@ -18,9 +18,9 @@ const BusinessForm = props => {
     axios
       .post("https://bw-replate.herokuapp.com/api/auth/business/login", login)
       .then(res => {
-        console.log(res.data);
+        console.log(res.data.user);
         localStorage.setItem("token", res.data.token);
-        props.history.push("/business-home");
+        props.history.push("/business-home", { detail: res.data });
       })
       .catch(err => console.log(err));
   };

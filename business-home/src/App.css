@@ -50,12 +50,6 @@ h3 {
   justify-content: space-evenly;
 }
 
-.homPage,
-.businessDetails,
-.donationsList {
-  /* background-image: linear-gradient(45deg, yellow, purple); */
-}
-
 .testing {
   background: darkslategray;
   width: 100%;
@@ -76,7 +70,8 @@ h3 {
 .businessDetails,
 .donationCard,
 .business-info,
-.business-current-offers {
+.business-current-offers,
+.navigation-buttons a {
   box-shadow: 8px 5px 10px 1px grey;
   border-radius: 20px;
 }
@@ -131,7 +126,7 @@ h3 {
   justify-content: center;
 }
 .navigation-buttons a {
-  background: green;
+  background-image: linear-gradient(120deg, #adcfb1, #2d914c);
   padding: 20px;
   margin: 10px;
 }

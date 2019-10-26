@@ -3,9 +3,11 @@ import axios from "axios";
 import SearchForm from "./SearchForm";
 import DonationsList from "./DonationsList";
 import { getBusinessFood } from "./ApiContent";
+import { NavLink } from "react-router-dom";
+import { axiosWithAuthBusiness } from "../utils/axiosWithAuth.js";
 
-const BusinessDetails = props => {
-  console.log(props);
+const BusinessDetails = (props, userInfo) => {
+  console.log(userInfo);
   const { businessData, setBusinessData, apiAdd } = props; //destructuring the values brought in from the App page
   const [searchVal, setSearch] = useState("");
   const [infoState, setInfo] = useState([]);
@@ -39,33 +41,31 @@ const BusinessDetails = props => {
   };
   //=====
 
-  const dummyToken = { username: "busnessUsername", password: "pass" };
+  let tokenNum = localStorage.getItem("token");
+  console.log(tokenNum);
   useEffect(() => {
-    console.log("Business Axios...");
-    axios
-      .post(apiAdd, { dummyToken })
-      .then(results => {
-        //===depends on specificity of data to look up.
-        if (Number.isInteger(userTest)) {
-          inputData = results.data;
-        } else {
-          inputData = results.data.results;
-        }
-        //====
-        setBusinessData(inputData);
-        console.log(inputData);
-        console.log(Object.keys(inputData), Object.values(inputData));
+    axiosWithAuthBusiness()
+      .post("/login", tokenNum)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
       })
-      .catch(err => console.log(err));
+      .catch(e => console.log(e));
   }, []);
 
-  useEffect(() => {
-    console.log("useEffect with ApiContent.js");
-    getBusinessFood().then(data => setFoodList(data));
-  });
+  // useEffect(() => {
+  //   console.log("useEffect with ApiContent.js");
+  //   getBusinessFood().then(data => setFoodList(data));
+  // });
 
   return (
     <div className="businessDetails">
+      <div className="blockSpace"></div>
+      <div className="navigation-buttons">
+        <NavLink to="/business-home">Home</NavLink>
+        <br></br>
+        <NavLink to="/DonationsList">Donations</NavLink>
+      </div>
       <SearchForm
         searchVal={searchVal}
         handleChange={handleChange}
