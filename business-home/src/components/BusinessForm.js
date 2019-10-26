@@ -1,19 +1,11 @@
 import React, { useState } from "react";
-import axios from 'axios'; 
-import { Redirect } from 'react-router-dom';
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
-//import business login local storage for token -JAH
-import { axiosWithAuthBusiness } from '../utils/axiosWithAuth';
+import { axiosWithAuthBusiness } from "../utils/axiosWithAuth";
 
-// https://bw-replate.herokuapp.com/api/auth/business/login
-// {
-//     username: "businessUsername",
-//     password: "pass"
-// }
-
-const BusinessForm = (props) => {
-
-  //set local state here 
+const BusinessForm = props => {
+  //set local state here
   const [login, setLogin] = useState({
     username: "",
     password: ""
@@ -24,50 +16,48 @@ const BusinessForm = (props) => {
     console.log("props2 ", props);
     e.preventDefault();
     axios
-    .post('https://bw-replate.herokuapp.com/api/auth/business/login', login)
-    .then(res => {
-      console.log(res.data);
-      localStorage.setItem('token', res.data.token);
-      props.history.push('/business-home');
-    })
-    .catch(err => console.log(err))
-
-  }
+      .post("https://bw-replate.herokuapp.com/api/auth/business/login", login)
+      .then(res => {
+        console.log(res.data);
+        localStorage.setItem("token", res.data.token);
+        props.history.push("/business-home");
+      })
+      .catch(err => console.log(err));
+  };
   //change handler
-  const handleChange = (e) => {
+  const handleChange = e => {
     setLogin({
       ...login,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   return (
     <div>
       <h2>Business User Login</h2>
-      <form onSubmit={businessLogin} >
+      <form onSubmit={businessLogin}>
         <div>
-        <input
-          component="input"
-          type="text"
-          name="username"
-          placeholder="Enter user name"
-          onChange={handleChange}
-       />
-       </div>
+          <input
+            component="input"
+            type="text"
+            name="username"
+            placeholder="Enter user name"
+            onChange={handleChange}
+          />
+        </div>
         <div>
-        <input
-          component="input"
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          onChange={handleChange}
-        />
-       </div>
+          <input
+            component="input"
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            onChange={handleChange}
+          />
+        </div>
         <div>
-        <button>Login</button>
+          <button>Login</button>
         </div>
       </form>
-     
     </div>
   );
 };
