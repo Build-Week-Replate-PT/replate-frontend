@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import DonationCard from "./DonationCard";
 import SearchForm from "./SearchForm";
-import axios from "axios";
-import Dropdown from "react-dropdown";
+import { NavLink } from "react-router-dom";
 
 import { dummyData } from "./DummyData";
+import { axiosWithAuthFood } from "../utils/axiosWithAuth.js";
 
 const DonationsList = props => {
   // console.log(props);
   const { donations, setDonations, apiAdd } = props;
   const [searchValDon, setSearchDon] = useState("");
   const [infoState, setInfo] = useState([]);
-  const [filteredDonations, setFilteredDons] = useState([]);
+  const [foodItems, setFoodItems] = useState({});
 
   //====EVENT HANDLERS
   const handleChange = e => {
@@ -33,84 +33,41 @@ const DonationsList = props => {
         ele.name.toLowerCase().includes(searchValDon.toLowerCase())
       )
     );
-    setFilteredDons();
-
-    console.log(donations);
-    console.log(filteredDonations);
   };
   //=====
 
-  const userTest = "";
-  // const userTest = 15;
-  let inputData = [];
-  //====
-  //
-  //
-
-  // const loginKey = { username: "busnessUsername", password: "pass" };
-  // useEffect(() => {
-  //   console.log("axios is running");
-  //   const getDonations = () => {
-  //     axios
-  //       .get(apiAdd)
-  //       .then(results => {
-  //         //===depends on specificity of data to look up.
-  //         if (Number.isInteger(userTest)) {
-  //           inputData = results.data;
-  //         } else {
-  //           inputData = results.data.results;
-  //         }
-  //         //====
-  //         setDonations(inputData);
-  //         console.log(inputData);
-  //         console.log(Object.keys(inputData), Object.values(inputData));
-  //       })
-  //       .catch(err => console.log(err));
-  //   };
-  //   getDonations();
-  // }, []);
-
-  //
-  console.log(filteredDonations);
-  const options = ["one", "two", "three"];
-
-  console.log("donations", donations);
+  let tokenNum = localStorage.getItem("token");
+  console.log(tokenNum);
   useEffect(() => {
-    if (donations == 0) {
-      setFilteredDons(dummyData);
-      console.log("filtered", filteredDonations);
-    }
-  });
+    axiosWithAuthFood()
+      .get("", tokenNum)
+      .then(res => {
+        // console.log("Get response:", res.data);
+        setFoodItems(res.data);
+      })
+      .catch(e => console.log(e));
+  }, []);
 
   //===========================================
   return (
     <section className="donations-container">
       DONATIONS PAGE:
       <div className="donation-header">
+        <NavLink to="/business-home">Home</NavLink>
+        <NavLink to="/add-donation">Add Donation</NavLink>
         <SearchForm
           searchValDon={searchValDon}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
         />
-        <Dropdown
-          options={options}
-          onChange={`beedrill`}
-          value={options[0]}
-          placeholder="somethingclever"
-        >
-          DropDown
-        </Dropdown>
       </div>
       <div className="donationsList">
-        {console.log(filteredDonations, donations)}
-        {filteredDonations !== 0
-          ? filteredDonations.map(each => {
-              console.log("true");
+        {foodItems.length > 0
+          ? foodItems.map(each => {
               return <DonationCard each={each} />;
             })
-          : donations.map(each => {
-              console.log("else");
-              return <DonationCard each={each} />;
+          : dummyData.map(each => {
+              return <DonationCard each={each} key={each.id} />;
             })}
       </div>
     </section>

@@ -1,17 +1,34 @@
 import React, { useState } from "react";
 import "../DonationCard.css";
+import { NavLink } from "react-router-dom";
 
 const DonationCard = props => {
   const [donation, setDonation] = useState(undefined);
-  const { name, date, quantity, status, description } = props.each;
-  // console.log(props.each);
+  const {
+    id,
+    name,
+    pickup_date,
+    time,
+    description,
+    is_claimed,
+    business_id,
+    volunteer_id
+  } = props.each;
+  /*
   const propKeys = Object.keys(props.each);
-  //"id", "name", "location", "date", "time", "description", "quantity", "phone", "accepted", "status"
-  // console.log(propKeys);
+  console.log(propKeys);
+  "id", "name", "pickup_date", "time", "description", "is_claimed", "business_id", "volunteer_id"
+  */
 
   if (props.each !== undefined) {
     // console.log(props.each.name, props.each.url);
   }
+
+  let status = "Ready for Pickup";
+  if (is_claimed === 1) {
+    status = "Picked Up";
+  }
+
   return props.each ? (
     <section>
       <div className="donationCard">
@@ -20,13 +37,15 @@ const DonationCard = props => {
           alt="test"
         ></img>
         <div className="busCard-details">
-          <h2>{date}</h2>
-          <p>{description} (desc)</p>
+          <h2>{name}</h2>
+          <p>{description}</p>
           <br />
           <div className="bus-bottom-row">
-            <p>QTY: {quantity}</p>
-            <p>{status}(status)</p>
+            <p>{pickup_date}</p>
+            <p>{status}</p>
           </div>
+          <NavLink to="/modify-food">Modify</NavLink>
+          <NavLink to="/delete-food">Delete</NavLink>
         </div>
       </div>
     </section>
