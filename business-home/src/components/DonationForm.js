@@ -29,17 +29,17 @@ const DonationForm = (props) => {
         pickup_date: ""
     })
 
+    const foodToken = localStorage.getItem("token");
        //set donation
     const DonationSubmit = e => {
             console.log("Click Worked")
             e.preventDefault();
-            axios
-            .post('https://bw-replate.herokuapp.com/api/food', donation)
-            .then(res => {
-            console.log(res.data);
-    //   props.history.push('/nonprofit_home')
-    })
-    .catch(err => console.log(err))
+            axiosWithAuthFood
+                .put(donation)
+                .then(res => {
+                    console.log(res.data);
+                            })
+                .catch(err => console.log(err))
   }
 
      //change handler
