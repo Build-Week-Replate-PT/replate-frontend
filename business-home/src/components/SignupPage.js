@@ -6,14 +6,14 @@ import BusinessSignupForm from "./BusinessSignupForm";
 import NonProfitSignupForm from "./NonProfitSignupForm";
 
 
-const SignupPage = () => {
+const SignupPage = (props) => {
   return (
     <div>
       <div>
-        <BusinessSignupForm />
+        <BusinessSignupForm {...props}/>
       </div>
       <div>
-        <NonProfitSignupForm />
+        <NonProfitSignupForm {...props}/>
       </div>
       <div>
       <Link to="/">Click here to login</Link>
